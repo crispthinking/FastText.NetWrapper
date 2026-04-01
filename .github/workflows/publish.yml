@@ -40,4 +40,4 @@ jobs:
 
       - name: Publish NuGet package
         if: github.event_name == 'release'
-        run: dotnet nuget push bin/artifacts/**/*.nupkg --api-key "${{ steps.login.outputs.apiKey }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+        run: dotnet nuget push bin/artifacts/**/*.nupkg --api-key "${{steps.login.outputs.NUGET_API_KEY}}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
