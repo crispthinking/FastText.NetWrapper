@@ -1,16 +1,16 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <package xmlns="http://schemas.microsoft.com/packaging/2013/05/nuspec.xsd">
   <metadata>
-    <id>FastText.NetWrapper</id>
+    <id>$packageId$</id>
     <version>$version$</version>
-    <title>FastText.NetWrapper</title>
-    <authors>Oleg Tarasov</authors>
-    <licenseUrl>https://raw.githubusercontent.com/olegtarasov/FastText.NetWrapper/master/LICENSE</licenseUrl>
-    <projectUrl>https://github.com/olegtarasov/FastText.NetWrapper</projectUrl>
+    <title>CrispThinking.FastText.NetWrapper</title>
+    <authors>Crisp Thinking</authors>
+    <licenseUrl>https://raw.githubusercontent.com/crispthinking/FastText.NetWrapper/main/LICENSE</licenseUrl>
+    <projectUrl>https://github.com/crispthinking/FastText.NetWrapper</projectUrl>
     <description>Crossplatform .NET wrapper for Facebook's FastText library. Works on Windows, Linux and MacOs!</description>
-    <releaseNotes>Attention! We are deprecating some methods in 1.1 and replacing them with new API. Migration is really straightforward, but please be sure to read https://github.com/olegtarasov/FastText.NetWrapper/blob/master/README.md for guidance.</releaseNotes>
+    <releaseNotes>Attention! We are deprecating some methods in 1.1 and replacing them with new API. Migration is really straightforward, but please be sure to read https://github.com/crispthinking/FastText.NetWrapper/blob/main/README.md for guidance.</releaseNotes>
     <copyright>Oleg Tarasov</copyright>
-    <repository url="https://github.com/olegtarasov/FastText.NetWrapper" />
+    <repository url="https://github.com/crispthinking/FastText.NetWrapper" />
     <dependencies>
       <group targetFramework=".NETStandard2.0">
         <dependency id="AutoMapper" version="10.1.1" />
