@@ -12,6 +12,7 @@ permissions:
   packages: write
   checks: write
   pull-requests: write
+  id-token: write  # Required for NuGet trusted publishing (OIDC)
 
 jobs:
   build:
@@ -33,4 +34,14 @@ jobs:
       - name: Publish NuGet package
         if: github.event_name == 'release'
         run: |
-          dotnet nuget push bin/artifacts/**/*.nupkg --api-key "${{ secrets.NUGET_APIKEY }}" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
+          OIDC_TOKEN=$(curl --silent --show-error --fail-with-body \
+            --url "$ACTIONS_ID_TOKEN_REQUEST_URL&audience=api://AzureADTokenExchange" \
+            --header "Authorization: Bearer $ACTIONS_ID_TOKEN_REQUEST_TOKEN" \
+            | jq --raw-output '.value')
+          API_KEY=$(curl --silent --show-error --fail-with-body \
+            --request POST \
+            --url "https://api.nuget.org/v1/authentication/authenticate" \
+            --header "Content-Type: application/json" \
+            --data "{\"oidcToken\": \"$OIDC_TOKEN\"}" \
+            | jq --raw-output '.apiKey')
+          dotnet nuget push bin/artifacts/**/*.nupkg --api-key "$API_KEY" --source "https://api.nuget.org/v3/index.json" --skip-duplicate
