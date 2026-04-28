@@ -7,6 +7,7 @@
     <ImplicitUsings>true</ImplicitUsings>
     <NuspecFile>$(MSBuildThisFileDirectory)$(MSBuildProjectName).nuspec</NuspecFile>
     <PackageId>CrispThinking.FastText.NetWrapper</PackageId>
+    <MinVerTagPrefix>v</MinVerTagPrefix>
   </PropertyGroup>
 
   <PropertyGroup Condition=" '$(Configuration)' == 'Release' ">
